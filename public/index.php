@@ -15,6 +15,5 @@ if (file_exists(dirname(__DIR__) . '/.env')) {
 require __DIR__ . '/../config/bootstrap.php';
 $config = require __DIR__ . '/../config/config.php';
 
-
 $application = new Application($config);
 $application->run();
