@@ -6,6 +6,8 @@
 
 $applicationPath = dirname(__DIR__);
 
+
+
 return [
     'id' => 'frontend',
     'basePath' => $applicationPath,
@@ -23,16 +25,18 @@ return [
                 'twig' => [
                     'class' => 'yii\twig\ViewRenderer',
                     'cachePath' => '@runtime/Twig/cache',
-                    // Array of twig options:
                     'options' => [
                         'auto_reload' => true,
                     ],
                     'globals' => [
                         'html' => ['class' => '\yii\helpers\Html'],
                     ],
+                    'filters' => [
+                        'dump' => 'var_dump',
+                        'phpdate' => 'date',
+                    ],
                     'uses' => ['yii\bootstrap'],
-                ],
-                // ...
+                ]
             ],
         ],
     ]

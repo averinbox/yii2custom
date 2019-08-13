@@ -8,15 +8,16 @@
 
 namespace app\controllers;
 
+use common\components\Controller;
 use common\models\Test;
-use yii\web\Controller;
+use yii\web\Request;
+use yii\web\Response;
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(Request $request): Response
     {
         $model = new Test();
-
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', ['model' => $model, 'request' => $request]);
     }
 }

@@ -8,6 +8,7 @@ $basePath = dirname(__DIR__);
 $config = [
     'id' => 'base-app',
     'runtimePath' => $basePath . '/runtime',
+//    'basePath' => $basePath . '/src',
     'bootstrap' => ['log'],
     'components' => [
         'log' => [
