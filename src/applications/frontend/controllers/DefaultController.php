@@ -6,7 +6,7 @@
  * Time: 14:26
  */
 
-namespace app\controllers;
+namespace app\applications\frontend\controllers;
 
 use common\components\Controller;
 use common\models\Test;

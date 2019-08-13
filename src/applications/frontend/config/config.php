@@ -5,14 +5,14 @@
  */
 
 $applicationPath = dirname(__DIR__);
-
-
+$viewPath = $applicationPath . '/views';
 
 return [
     'id' => 'frontend',
-    'basePath' => $applicationPath,
     'defaultRoute' => 'default/index',
-    'layoutPath' => "{$applicationPath}/views",
+    'viewPath' => $viewPath,
+    'layoutPath' => $viewPath,
+    'controllerNamespace' => 'app\\applications\\frontend\\controllers',
     'components' => [
         'urlManager' => [
             'enablePrettyUrl' => true,
