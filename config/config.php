@@ -11,6 +11,10 @@ $config = [
     'basePath' => $basePath . '/src',
     'bootstrap' => ['log'],
     'components' => [
+        'request' => [
+            'enableCookieValidation' => false,
+            'cookieValidationKey' => '',
+        ],
         'log' => [
             'traceLevel' => 3,
             'targets' => [
@@ -19,9 +23,20 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
-        ]
-    ]
+        ],
+    ],
 ];
+
+if (YII_ENV_DEV) {
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+    $config['components']['urlManager']['rules']['http://gii.' . getenv('DEFAULT_HOST')] = 'gii/default';
+}
+
+$config['components']['urlManager']['rules']['http://gii.yii2session.loc'] = 'gii/default';
+
 
 if(file_exists(__DIR__ . '/db.php')) {
     $config['components']['db'] = require __DIR__ . '/db.php';
