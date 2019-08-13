@@ -4,9 +4,7 @@ use common\components\Application;
 
 use Dotenv\Dotenv;
 
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_ENV') or define('YII_ENV', 'dev');
-
+require __DIR__ . '/../config/defines.php';
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../framework/Yii.php';
 
