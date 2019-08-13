@@ -1,7 +1,8 @@
 <?php
-/**
- * Main Yii config.
- */
+
+use yii\helpers\ArrayHelper;
+use yii\log\FileTarget;
+
 $basePath = dirname(__DIR__);
 
 $config = [
@@ -13,7 +14,7 @@ $config = [
             'traceLevel' => 3,
             'targets' => [
                 [
-                    'class' => \yii\log\FileTarget::class,
+                    'class' => FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -25,7 +26,7 @@ if(file_exists(__DIR__ . '/db.php')) {
     $config['components']['db'] = require __DIR__ . '/db.php';
 }
 
-$possibleHosts = ['admin', 'frontend', 'api'];
+$possibleHosts = array_diff(scandir(Yii::getAlias('@applications')), ['.', '..']);
 $currentApplicationID = explode('.', $_SERVER['HTTP_HOST'])[0];
 
 if (false === in_array($currentApplicationID, $possibleHosts)) {
@@ -36,5 +37,5 @@ if ($currentApplicationID === 'gii') {
     return $config;
 }
 
-return \yii\helpers\ArrayHelper::merge($config,
-    require "{$basePath}/src/applications/{$currentApplicationID}/config/config.php");
+return ArrayHelper::merge($config,
+    require $basePath . '/src/applications/' . $currentApplicationID . '/config/config.php');
