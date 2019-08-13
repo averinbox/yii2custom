@@ -35,9 +35,6 @@ if (YII_ENV_DEV) {
     $config['components']['urlManager']['rules']['http://gii.' . getenv('DEFAULT_HOST')] = 'gii/default';
 }
 
-$config['components']['urlManager']['rules']['http://gii.yii2session.loc'] = 'gii/default';
-
-
 if(file_exists(__DIR__ . '/db.php')) {
     $config['components']['db'] = require __DIR__ . '/db.php';
 }
