@@ -7,8 +7,10 @@ require __DIR__ . '/../config/defines.php';
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../framework/Yii.php';
 
-if (file_exists(dirname(__DIR__) . '/.env')) {
+try {
     (new Dotenv(dirname(__DIR__)))->load();
+} catch(Exception $e){
+    echo Yii::t('app', 'Создайте и сконфигурируйте файл .env на основе .env.example'); exit;
 }
 
 require __DIR__ . '/../config/bootstrap.php';
