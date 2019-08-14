@@ -7,6 +7,7 @@ $basePath = dirname(__DIR__);
 
 $config = [
     'id' => 'base-app',
+    'extensions' => require __DIR__ . '/../vendor/yiisoft/extensions.php',
     'runtimePath' => $basePath . '/runtime',
     'basePath' => $basePath . '/src',
     'bootstrap' => ['log'],
