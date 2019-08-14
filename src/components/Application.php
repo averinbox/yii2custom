@@ -2,8 +2,9 @@
 namespace common\components;
 
 use Yii;
+use \yii\web\Application as YiiApplication;
 
-class Application extends \yii\web\Application
+class Application extends YiiApplication
 {
     public function runAction($route, $params = [])
     {
