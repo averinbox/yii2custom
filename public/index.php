@@ -1,7 +1,6 @@
 <?php
 
 use common\components\Application;
-
 use Dotenv\Dotenv;
 
 require __DIR__ . '/../config/defines.php';
