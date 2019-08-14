@@ -1,4 +1,4 @@
 <?php
 return [
-    ['pattern'=>'<action>', 'route'=>'controller/<action>'],
+    ['pattern' => '<action>', 'route' => 'controller/<action>'],
 ];

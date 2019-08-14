@@ -4,10 +4,14 @@ use yii\helpers\ArrayHelper;
 use yii\log\FileTarget;
 
 $basePath = dirname(__DIR__);
+$extensions = require __DIR__ . '/../vendor/yiisoft/extensions.php';
+$db = require __DIR__ . '/db.php';
+$possibleHosts = array_diff(scandir(Yii::getAlias('@applications')), ['.', '..']);
+$currentApplicationID = explode('.', $_SERVER['HTTP_HOST'])[0];
 
 $config = [
     'id' => 'base-app',
-    'extensions' => require __DIR__ . '/../vendor/yiisoft/extensions.php',
+    'extensions' => $extensions,
     'runtimePath' => $basePath . '/runtime',
     'basePath' => $basePath . '/src',
     'bootstrap' => ['log'],
@@ -33,15 +37,14 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
-    $config['components']['urlManager']['rules']['http://gii.' . getenv('DEFAULT_HOST')] = 'gii/default';
+    $config['components']['urlManager']['rules'][
+        getenv('DEFAULT_SCHEMA') .
+        'gii.' . getenv('DEFAULT_HOST')] = 'gii/default';
 }
 
-if(file_exists(__DIR__ . '/db.php')) {
-    $config['components']['db'] = require __DIR__ . '/db.php';
+if (file_exists(__DIR__ . '/db.php')) {
+    $config['components']['db'] = $db;
 }
-
-$possibleHosts = array_diff(scandir(Yii::getAlias('@applications')), ['.', '..']);
-$currentApplicationID = explode('.', $_SERVER['HTTP_HOST'])[0];
 
 if (false === in_array($currentApplicationID, $possibleHosts)) {
     $currentApplicationID = 'frontend';
