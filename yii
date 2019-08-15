@@ -9,14 +9,15 @@
  */
 
 use Dotenv\Dotenv;
+use yii\console\Application;
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
-
 $composerAutoload = [
-    __DIR__ . '/vendor/autoload.php', // in yii2-dev repo
-    __DIR__ . '/../autoload.php', // installed as a composer binary
+    __DIR__ . '/vendor/autoload.php',
+    __DIR__ . '/../autoload.php',
 ];
+
 $vendorPath = null;
 foreach ($composerAutoload as $autoload) {
     if (file_exists($autoload)) {
@@ -31,14 +32,9 @@ if (file_exists('.env')) {
 }
 
 require __DIR__ . '/framework/Yii.php';
-
 $config = require __DIR__ . '/src/commands/config/config.php';
 
-if(file_exists(__DIR__ . '/config/db.php')) {
-    $config['components']['db'] = require __DIR__ . '/config/db.php';
-}
-
-$application = new yii\console\Application($config);
+$application = new Application($config);
 
 if ($vendorPath !== null) {
     $application->setVendorPath($vendorPath);

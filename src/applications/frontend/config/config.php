@@ -6,6 +6,7 @@
 
 $applicationPath = dirname(__DIR__);
 $viewPath = $applicationPath . '/views';
+$routes = include __DIR__ . '/routes.php';
 
 return [
     'id' => 'frontend',
@@ -17,7 +18,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => include __DIR__ . '/routes.php'
+            'rules' => $routes
         ],
         'view' => [
             'class' => 'yii\web\View',
