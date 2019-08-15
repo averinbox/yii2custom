@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "Russo One";
+    src: url("../fonts/RussoOne-Regular.ttf")
+}
+
+body {
+    font-family: Tahoma;
+    font-size: 13px;
+}
+
+header {
+    background: #efefef;
+}
+
+.font-russo-one {font-family: 'Russo One', sans-serif;}
+.br-50 {
+    border-radius: 50% 50% 50% 50%;
+    /*-moz-border-radius: 50% 50% 50% 50%;*/
+    /*-webkit-border-radius: 50% 50% 50% 50%;*/
+}
+
+.br-1-25 {
+    border-radius: 1.25rem;
+}
+
+.mini-logo {
+    max-width: 50px;
+}
+
+.header-menu > li > a {
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    color: #333333;
+}
+
+.gradient-bottom {
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 42%, rgba(245, 245, 245, 1) 90%, rgba(237, 237, 237, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(42%, rgba(255, 255, 255, 1)), color-stop(90%, rgba(245, 245, 245, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 42%, rgba(245, 245, 245, 1) 90%, rgba(237, 237, 237, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 42%, rgba(245, 245, 245, 1) 90%, rgba(237, 237, 237, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 42%, rgba(245, 245, 245, 1) 90%, rgba(237, 237, 237, 1) 100%);
+}
+
+.b10l15 {
+    bottom: -8px;
+    left: 15px;
+}
