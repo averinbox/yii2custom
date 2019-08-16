@@ -32,6 +32,7 @@ if (file_exists('.env')) {
 }
 
 require __DIR__ . '/framework/Yii.php';
+require __DIR__ . '/config/bootstrap.php';
 $config = require __DIR__ . '/src/commands/config/config.php';
 
 $application = new Application($config);
