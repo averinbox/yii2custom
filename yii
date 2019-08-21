@@ -11,8 +11,6 @@
 use Dotenv\Dotenv;
 use yii\console\Application;
 
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-
 $composerAutoload = [
     __DIR__ . '/vendor/autoload.php',
     __DIR__ . '/../autoload.php',
@@ -27,8 +25,10 @@ foreach ($composerAutoload as $autoload) {
     }
 }
 
-if (file_exists('.env')) {
+try {
     (new Dotenv(__DIR__))->load();
+} catch(Exception $e){
+    echo 'Создайте и сконфигурируйте файл .env на основе .env.example'; exit;
 }
 
 require __DIR__ . '/framework/Yii.php';
@@ -40,5 +40,6 @@ $application = new Application($config);
 if ($vendorPath !== null) {
     $application->setVendorPath($vendorPath);
 }
+
 $exitCode = $application->run();
 exit($exitCode);

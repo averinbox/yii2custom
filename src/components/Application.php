@@ -15,5 +15,4 @@ class Application extends YiiApplication
 
         return parent::runAction($route, $params);
     }
-
 }

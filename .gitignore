@@ -20,6 +20,8 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
+/framework
+# composer vendor dir
 /vendor
 # cubrid install dir
 /cubrid
